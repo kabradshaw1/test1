@@ -5,7 +5,8 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 
 const Home = () => {
-  const [userInput, setUserInput] = useState('')
+  const [emailInput, setEmailInput] = useState('')
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -16,7 +17,7 @@ const Home = () => {
       <Form.Label><h3>User Form</h3></Form.Label>
       <Form.Group className='mb-3' controlId='formBasicEmail'>
         <Form.Label>Email address</Form.Label>
-        <Form.Control type='email' placeholder='Enter email'/>
+        <Form.Control name='emailInput' value={emailInput} onChange={(e) => setEmailInput(e.target.value)} type='text' placeholder='Enter email'/>
       </Form.Group>
       <Form.Group className='mb-3' controlId='formBasicPassword'>
         <Form.Label>Password</Form.Label>

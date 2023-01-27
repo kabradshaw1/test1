@@ -6,11 +6,14 @@ import Button from 'react-bootstrap/Button';
 
 const Home = () => {
   const [userInput, setUserInput] = useState('')
-  // const handleSubmit = await (event) => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  // }
+
+  }
   return (
-    <Form className='bg-secondary'>
+    <Form className='bg-secondary' onSubmit={handleSubmit}>
+      <Form.Label><h3>User Form</h3></Form.Label>
       <Form.Group className='mb-3' controlId='formBasicEmail'>
         <Form.Label>Email address</Form.Label>
         <Form.Control type='email' placeholder='Enter email'/>

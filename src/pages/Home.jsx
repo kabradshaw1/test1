@@ -7,11 +7,15 @@ import Button from 'react-bootstrap/Button';
 const Home = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(emailInput)
-    console.log(passwordInput)
-
+    console.log(userFormData)
+    
     // if (!emailInput || !passwordInput) {
     //   return false;
     // }
@@ -26,13 +30,13 @@ const Home = () => {
   return (
     <Form className='bg-secondary' onSubmit={handleSubmit}>
       <Form.Label><h3>User Form</h3></Form.Label>
-      <Form.Group className='mb-3' controlId='formBasicEmail'>
+      <Form.Group className='mb-3'>
         <Form.Label>Email address</Form.Label>
-        <Form.Control name='emailInput' value={emailInput} onChange={(e) => setEmailInput(e.target.value)} type='text' placeholder='Enter email'/>
+        <Form.Control name='email' value={userFormData.email} onChange={handleInputChange} type='text' placeholder='Enter email'/>
       </Form.Group>
-      <Form.Group className='mb-3' controlId='formBasicPassword'>
+      <Form.Group className='mb-3'>
         <Form.Label>Password</Form.Label>
-        <Form.Control name='passwordInput' value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} type='password' placeholder='Enter password'/>
+        <Form.Control name='password' value={userFormData.password} onChange={handleInputChange} type='password' placeholder='Enter password'/>
       </Form.Group>
       <Button variant="primary" type="submit">
         Submit

@@ -5,14 +5,24 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 
 const Home = () => {
-  const [emailInput, setEmailInput] = useState('')
-  const [passwordInput, setPasswordInput] = useState('')
+  const [userFormData, setUserFormData] = useState({ email: "", password: "" });
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(emailInput)
+    console.log(passwordInput)
 
+    // if (!emailInput || !passwordInput) {
+    //   return false;
+    // }
+ 
+    // try {
+    //   await axios.post('api/user', )
+    // } catch(err) {
+    //   console.error(err)
+    // }
+  };
 
-  }
   return (
     <Form className='bg-secondary' onSubmit={handleSubmit}>
       <Form.Label><h3>User Form</h3></Form.Label>
@@ -22,7 +32,7 @@ const Home = () => {
       </Form.Group>
       <Form.Group className='mb-3' controlId='formBasicPassword'>
         <Form.Label>Password</Form.Label>
-        <Form.Control name='passwordInput' value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} type='text' placeholder='Enter password'/>
+        <Form.Control name='passwordInput' value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} type='password' placeholder='Enter password'/>
       </Form.Group>
       <Button variant="primary" type="submit">
         Submit

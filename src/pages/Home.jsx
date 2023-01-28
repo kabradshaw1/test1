@@ -29,7 +29,7 @@ const Home = () => {
     }
     
     try {
-      const resp = await axios.post('/api/users', userFormData);
+      const resp = await axios.post('/api/users/', userFormData);
       console.log(resp.data)
 
     } catch(err) {

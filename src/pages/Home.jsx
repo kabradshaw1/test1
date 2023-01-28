@@ -16,10 +16,10 @@ const Home = () => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
-
+  const requestSubmit = () => {}
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    console.log(userFormData)
     // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -28,7 +28,9 @@ const Home = () => {
     }
     
     try {
-      await axios.post('api/user', userFormData)
+      const resp = await axios.post('/api/users', userFormData);
+      console.log(resp.data)
+
     } catch(err) {
       console.error(err)
     }

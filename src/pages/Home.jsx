@@ -9,6 +9,7 @@ const Home = () => {
 
   // set state for form validation
   const [validated] = useState(false);
+
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 

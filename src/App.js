@@ -1,7 +1,9 @@
 import Home from './pages/Home'
 import Header from './components/Header'
-import { Switch, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Container from 'react-bootstrap/Container'
+import UserList from './components/UserList'
+import CreateUser from './components/CreateUser';
 
 function App() {
 
@@ -9,7 +11,11 @@ function App() {
     <>
       <Header/>
       {/* <Home/> */}
-      <Container className='m-10'></Container>
+      <Container className='m-10'>
+        <Routes>
+          {/* <Route exact path={['/', '/users']} component={UserList}/> */}
+        </Routes>
+      </Container>
     </>
   );
 }

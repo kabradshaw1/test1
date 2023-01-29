@@ -2,10 +2,11 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { Link } from 'react-router-dom';
 
 
-function Header(props) {
-  const{ currentTab, handleTabChange } = props;
+function Header() {
+  
   return(
     <Container fluid>
       <Row className='align-items-center'>

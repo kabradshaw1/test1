@@ -2,6 +2,10 @@ import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
 import { headers } from '../../services/menu.service';
 import { useNavigate } from 'react-router-dom';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Alert from 'react-bootstrap/Alert';
+import CloseButton from 'react-bootstrap/CloseButton'
 
 const MenuList = () => {
   const [menus, setMenus] = useState([])
@@ -44,7 +48,16 @@ const MenuList = () => {
   }
 
   return (
-    placeholder
+    <Row className='justify-content-center'>
+      <Col>
+        {deleted && (
+          <Alert className='alert alert-danger alert-dismissible fade show'>
+            Menu deleted!
+            <CloseButton ></CloseButton>
+          </Alert>
+        )}
+      </Col>
+    </Row>
   )
 }
 

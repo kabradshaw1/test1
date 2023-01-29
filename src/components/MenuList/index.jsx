@@ -39,7 +39,13 @@ const MenuList = () => {
         console.error(e);
       })
   }
-  
+  const handleUpdateClick = (id) => {
+    
+  }
+
+  return (
+    placeholder
+  )
 }
 
 export default MenuList

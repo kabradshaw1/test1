@@ -14,13 +14,13 @@ function Header() {
         <Col>
           <Nav variant='pills'>
             <Nav.Item>
-              <Nav.Link as={Link} to='/add/'>
+              <Nav.Link as={Link} to={'/add/'}>
                 Add
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link>
-                Option 2
+                Place Holder
               </Nav.Link>
             </Nav.Item>
           </Nav>

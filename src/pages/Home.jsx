@@ -8,7 +8,7 @@ import{ useEffect, useState } from 'react'
 
 import Container from 'react-bootstrap/Container'
 
-const Home = () => {
+export const Home = () => {
   const [users, setUsers] = useState([]);
 
   
@@ -27,4 +27,3 @@ const Home = () => {
   )
 }
 
-export default Home;

@@ -1,17 +1,17 @@
 import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
-import { headers } from '../services/menu.service';
-import { useHistory } from 'react-router-dom';
+import { headers } from '../../services/menu.service';
+import { useNavigate } from 'react-router-dom';
 
-export const MenuList = () => {
+const MenuList = () => {
   const [menus, setMenus] = useState([])
-  const history = useHistory();
+  const history = useNavigate();
   const countRef = useRef(0);
   const [deleted, setDeleted] = useState(false);
   useEffect(() => {
     retrieveAllMenus();
   }, [countRef]);
-  const retrieveAllMenu = async () => {
+  const retrieveAllMenus = async () => {
     try{
       let response = await axios.get('/api/menu/', {
         header: {
@@ -41,3 +41,5 @@ export const MenuList = () => {
   }
   
 }
+
+export default MenuList

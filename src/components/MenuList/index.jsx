@@ -2,10 +2,7 @@ import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
 import { headers } from '../../services/menu.service';
 import { useNavigate } from 'react-router-dom';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Alert from 'react-bootstrap/Alert';
-import CloseButton from 'react-bootstrap/CloseButton'
+import {Row, Col, Card, Alert, CloseButton, ButtonGroup, Button} from 'react-bootstrap';
 
 const MenuList = () => {
   const [menus, setMenus] = useState([])
@@ -53,9 +50,32 @@ const MenuList = () => {
         {deleted && (
           <Alert className='alert alert-danger alert-dismissible fade show'>
             Menu deleted!
-            <CloseButton ></CloseButton>
+            <CloseButton data-dismiss="alert">
+              <span aria-hidden='true'>&times;</span>
+            </CloseButton>
           </Alert>
         )}
+        { menus && 
+          menus.map((menu, index) => {
+            <Card className='my-3 w-25 mx-auto'>
+              <Card.Body>
+                <Card.Title className='font-weight-bold'>{menu.name}</Card.Title>
+                <Card.Subtitle className='mb-2'>{menu.price}</Card.Subtitle>
+                <Card.Text>{menu.description}</Card.Text>
+              </Card.Body>
+              <Card.Footer>
+                <ButtonGroup className='justify-content-around w-75 mb-1'>
+                  <span>
+                    <Button className='btn-info' onClick={() => handleUpdateClick(menu.id)}>Update</Button>
+                  </span>
+                  <span>
+                    <Button className='btn-info' onClick={() => deleteMenu(menu.id)}>Delete</Button>
+                  </span>
+                </ButtonGroup>
+              </Card.Footer>
+            </Card>
+          })
+        }
       </Col>
     </Row>
   )

@@ -16,15 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-# from user import views
-from menu import views
+from user.views import UserView
+from menu.views import MenuView
 
 router = routers.DefaultRouter()
-# router.register(r'users', views.UserView, 'user')
-router.register(r'menu', MenuViewSet, basename='menu')
+router.register(r'users', UserView, 'user')
+router.register(r'menu', MenuView, basename='menu')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('api/', include(router.urls)),
+    path('api/', include(router.urls)),
     path('api/', include((router.urls, 'restaurant'), namespace='restaurant'))
 ]

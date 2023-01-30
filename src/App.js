@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import MenuList from './components/MenuList';
 import UpdateMenu from './components/UpdateMenu';
 import {AddMenu} from './components/AddMenu';
+import CreateUser from './components/CreateUser'
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Header/>
    
       <Container className='m-10'>
+        <CreateUser/>
         <Routes>
           {/* <Route exact path={['/', '/menu']} component={MenuList}/> */}
           <Route exact path="/add/" component={AddMenu} />

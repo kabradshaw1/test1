@@ -6,6 +6,9 @@ from django.views import View
 from django.http import HttpResponse, HttpResponseNotFound
 import os
 
+def index(request):
+  return render(request, 'index.html')
+  
 class UserView(viewsets.ModelViewSet):
   serializer_class = UserSerializer
   queryset = User.objects.all()

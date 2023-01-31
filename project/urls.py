@@ -13,6 +13,7 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/', include((router.urls, 'project'), namespace='project')),
-    path('app/', include('user.urls'))
+    # path('app/', include('user.urls')),
+    # re_path('', TemplateView.as_view(template_name='index.html')),
 
 ]
